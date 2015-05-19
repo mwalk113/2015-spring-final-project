@@ -1,0 +1,88 @@
+/*
+* Pure CSS Components - http://www.felipefialho.com/css-components/
+* Author: Luiz Felipe Tartarotti Fialho
+* hi@felipefialho.com
+* http://www.felipefialho.com/
+*/
+
+.btn {
+    cursor: pointer;
+}
+
+.modal .btn-close {
+    color: #aaaaaa;
+    cursor: pointer;
+    //font-size: 30px;
+    text-decoration: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.modal .btn-close svg {
+    fill: lighten(#242424,40%);
+    transition: fill 400ms linear;
+    margin: 4px;
+    height: 22px;
+    width: 22px;
+}
+
+.modal .btn-close svg:hover {
+    fill: #242424;
+    transition: fill 400ms linear;
+}
+
+.modal-wrap:before {
+    content: "";
+    display: none;
+    background: rgba(0, 0, 0, 0.85);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 101;
+}
+
+.modal-overlay {
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 102;
+}
+
+.modal-open:checked ~ .modal-wrap:before,
+.modal-open:checked ~ .modal-wrap .modal-overlay {
+    display: block;
+}
+
+.modal-open:checked ~ .modal-wrap .modal-dialog {
+    transform: translate(-50%, 0);
+    top: 20%;
+}
+
+.modal-overlay {
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 102;
+}
+
+.modal-dialog {
+    background: #fefefe;
+    border: #555555 solid 1px;
+    border-radius: 5px;
+    position: fixed;
+    left: 50%;
+    top: -100%;
+    width: 80%;
+    max-width: 600px;
+    z-index: 103;
+    padding: 0 6px 6px 6px;
+}

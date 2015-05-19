@@ -1,0 +1,93 @@
+/* Nav.scss */
+
+// Fixed Navigation
+@media screen and (max-width: $tablet) {
+    .row .fixed-nav { 
+        position: absolute;     
+        top: 0;
+    }
+}
+
+// Responsive Menu 
+.menu {
+    @media screen and (min-width: $tablet) {
+        margin-top: 10px;
+    }
+    line-height: 1em;
+}
+
+.menu ul {
+    transition: max-height 400ms linear;
+    margin: 0;
+    padding: 0;
+    @media screen and (max-width: $tablet) {
+        text-align: center;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+    }
+}
+
+.menu li {
+    transition: visibility 400ms linear;
+    display: inline-block;
+}
+
+@media (max-width: $tablet) {
+    .menu ul {
+        max-height: 0;
+        overflow: hidden;
+        margin: 0;
+    }
+    .menu li:first-of-type {
+        margin-top: 24px;
+    }
+    .menu li:last-of-type {
+        margin-bottom: 10px;
+    }
+    .menu li {
+        visibility: hidden;
+        display: block;
+        padding: 0.5em 0.6em;
+        border: none;
+    }
+    .menu .navbar-handle {
+        display: block;
+    }
+    #navbar-checkbox:checked + .menu ul {
+        max-height: 100vh;
+    }
+    #navbar-checkbox:checked + .menu li {
+        visibility: visible;
+    }
+    #navbar-checkbox:checked + .menu .navbar-handle,
+    #navbar-checkbox:checked + .menu .navbar-handle:after,
+    #navbar-checkbox:checked + .menu .navbar-handle:before {
+        border-color: #aaa;
+    }
+}
+
+.navbar-checkbox {
+    display: none;
+}
+
+.navbar-handle {
+    display: none;
+    cursor: pointer;
+    position: relative;
+}
+
+#navbar-checkbox + .menu .navbar-handle:before {
+    content: "Menu";
+}
+
+#navbar-checkbox:checked + .menu .navbar-handle:before {
+    content: "Close";
+}
+
+.menu .navbar-handle {
+    position: absolute;
+    font-size: 1.2em;
+    top: 0.7em;
+    right: 12px;
+    z-index: 10;
+}
